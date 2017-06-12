@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# getting files with assembler code
+gcc -S -Iinclude -Isrc/m1/include -Isrc/m2/include src/m1/m1.c -o output/m1.s;
+gcc -S -Iinclude -Isrc/m1/include -Isrc/m2/include src/m2/m2.c -o output/m2.s;
+
+# getting object files
+gcc -c output/m1.s -o output/m1.o
+gcc -c output/m2.s -o output/m2.o
+
+# getting executable file
+gcc output/m1.o output/m2.o -o output/m
+
+./output/m
+
